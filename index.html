@@ -55,8 +55,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 /* HERO */
 .hero{padding:7.5rem 4rem 5.5rem;position:relative;overflow:hidden;background:#5e17eb;}
 .hero-noise{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 65% 55% at 88% 18%,rgba(66,0,255,0.6) 0%,transparent 65%),radial-gradient(ellipse 45% 38% at 4% 88%,rgba(66,0,255,0.35) 0%,transparent 60%);}
-.hero-inner{display:grid;grid-template-columns:1fr 280px;gap:3.5rem;align-items:start;position:relative;}
-.hero-photo{width:100%;max-height:420px;object-fit:cover;object-position:top;border-radius:4px;display:block;box-shadow:0 12px 48px rgba(30,0,80,0.55);}
+.hero-inner{display:grid;grid-template-columns:1fr 300px;gap:3.5rem;align-items:center;position:relative;}
+.hero-photo{width:100%;height:auto;border-radius:4px;display:block;box-shadow:0 12px 48px rgba(30,0,80,0.55);}
 .hero-tag{font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--cream);margin-bottom:1.1rem;text-shadow:var(--gc);}
 .hero-title{font-size:clamp(2.6rem,5.2vw,5rem);font-weight:300;line-height:1.08;color:var(--white);max-width:560px;margin-bottom:1.5rem;text-shadow:var(--gcs);}
 .hero-title strong{font-weight:700;color:var(--cream);display:block;font-size:1em;}
@@ -231,7 +231,8 @@ footer p{font-size:0.75rem;color:rgba(244,233,202,0.62);}
   .nav-burger{display:flex;}
   .hero{padding:6rem 1.5rem 3.5rem;}
   .hero-inner{grid-template-columns:1fr;}
-  .hero-photo{max-width:260px;margin:2rem auto 0;}
+  .hero-photo{height:auto;margin-top:2.5rem;max-width:100%;}
+
   .hero-title{font-size:2.2rem;}
   .statement{grid-template-columns:1fr;gap:1rem;padding:3.5rem 1.5rem;}
   .sec{padding:3.5rem 1.5rem;}
@@ -256,6 +257,10 @@ footer p{font-size:0.75rem;color:rgba(244,233,202,0.62);}
   footer{padding:1.5rem 1.5rem;flex-direction:column;align-items:flex-start;gap:0.72rem;}
   .sec-hdr{flex-direction:column;align-items:flex-start;gap:0.5rem;}
   .post-single{padding:6rem 1.5rem 4rem;}
+  .svc-row{grid-template-columns:1fr;}
+  .svc-row-left{border-right:none;border-bottom:1px solid var(--bl);padding:1.5rem 1.25rem 1rem;}
+  .svc-row-right{padding:1rem 1.25rem 1.75rem;}
+
   .modal{padding:1.75rem;}
 }
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
@@ -264,6 +269,13 @@ footer p{font-size:0.75rem;color:rgba(244,233,202,0.62);}
 .page.active .hero-actions{animation:fadeUp 0.6s 0.16s ease both;}
 .page.active .ah-title{animation:fadeUp 0.6s ease both;}
 .page.active .blog-hero-title{animation:fadeUp 0.6s ease both;}
+
+/* Services side-by-side rows */
+.svc-rows{border:1px solid var(--bl);}
+.svc-row{display:grid;grid-template-columns:240px 1fr;border-bottom:1px solid var(--bl);}
+.svc-row-left{padding:2.25rem 2rem;border-right:1px solid var(--bl);display:flex;flex-direction:column;justify-content:center;}
+.svc-row-right{padding:2.25rem 2.5rem;display:flex;align-items:center;}
+.svc-row:hover .svc-row-left,.svc-row:hover .svc-row-right{background:rgba(94,23,235,0.02);}
 </style>
 </head>
 <body>
@@ -368,15 +380,39 @@ footer p{font-size:0.75rem;color:rgba(244,233,202,0.62);}
 
   <section class="statement">
     <p class="stmt-label">Who I serve</p>
-    <p class="stmt-body">I help Christian entrepreneurs <strong>start and expand</strong> their businesses through content creation, social media consultancy, and online security, from wherever they are in the world.</p>
+    <p class="stmt-body">I help Christian entrepreneurs <strong>start, expand, and steward</strong> their businesses through content creation, social media consultancy, and online security, from wherever they are in the world.</p>
   </section>
 
   <section class="sec sec-white">
     <div class="sec-hdr"><h2 class="sec-title">What I offer</h2><span class="sec-num">Services</span></div>
-    <div class="svc-grid" style="grid-template-columns:repeat(3,1fr);">
-      <div class="svc" style="border-bottom:none;"><p class="svc-n">01</p><h3 class="svc-name">Content Creation</h3><p class="svc-desc">Your business has a voice. Your audience will hear it clearly, consistently, and in a way that draws the right people toward what God placed in your hand.</p></div>
-      <div class="svc" style="border-bottom:none;"><p class="svc-n">02</p><h3 class="svc-name">Social Media Management and Consultancy</h3><p class="svc-desc">Your platforms become intentional, active, and working for your business while you focus on the work you were actually called to do.</p></div>
-      <div class="svc" style="border-bottom:none;border-right:none;"><p class="svc-n">03</p><h3 class="svc-name">Online Security</h3><p class="svc-desc">What you have built is worth protecting. Your digital footprint is secured so that neither your business nor your clients become vulnerable.</p></div>
+    <div class="svc-rows">
+      <div class="svc-row">
+        <div class="svc-row-left">
+          <p class="svc-n">01</p>
+          <h3 class="svc-name">Content Creation</h3>
+        </div>
+        <div class="svc-row-right">
+          <p class="svc-desc">I write your captions, design your graphics, write your blog posts and newsletters, and make sure every piece sounds like you. You send me a voice note or a brief, and I turn it into content your audience can actually connect with. No generic templates. Your voice, your message, published consistently.</p>
+        </div>
+      </div>
+      <div class="svc-row">
+        <div class="svc-row-left">
+          <p class="svc-n">02</p>
+          <h3 class="svc-name">Social Media Management and Consultancy</h3>
+        </div>
+        <div class="svc-row-right">
+          <p class="svc-desc">I manage your platforms day-to-day or advise on strategy, depending on what you need. Your content goes out on time, your community is tended to, and your presence builds momentum while you focus on running your business. I also help you see what is working, what to stop doing, and what to double down on.</p>
+        </div>
+      </div>
+      <div class="svc-row" style="border-bottom:none;">
+        <div class="svc-row-left">
+          <p class="svc-n">03</p>
+          <h3 class="svc-name">Online Security</h3>
+        </div>
+        <div class="svc-row-right">
+          <p class="svc-desc">I audit your digital footprint and help you close the gaps. That covers how you store client data, how your email and accounts are set up, and how to protect yourself and your clients from phishing, hacking, and data breaches. You do not need to be technical. I walk you through it.</p>
+        </div>
+      </div>
     </div>
   </section>
 
